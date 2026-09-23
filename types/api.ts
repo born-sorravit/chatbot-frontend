@@ -6,14 +6,14 @@
  * change the other. Extract a package when this file stops being small.
  */
 
-/** Mirrors chatbots-backend/src/common/constants/permissions.ts */
+/** Mirrors chatbots-backend/src/shared/constants/permissions.ts */
 export enum UserRole {
   Owner = 'OWNER',
   Admin = 'ADMIN',
   Agent = 'AGENT',
 }
 
-/** Mirrors chatbots-backend/src/common/constants/permissions.ts */
+/** Mirrors chatbots-backend/src/shared/constants/permissions.ts */
 export const Permission = {
   ConversationRead: 'conversation.read',
   ConversationReply: 'conversation.reply',
@@ -87,7 +87,7 @@ export interface ApiErrorBody {
 }
 
 /* ── Phase 2: conversations & messages ──────────────────────────────────
- * Mirrors chatbots-backend/src/common/constants/conversation.ts
+ * Mirrors chatbots-backend/src/shared/constants/conversation.ts
  */
 
 export enum ConversationStatus {
@@ -223,7 +223,7 @@ export interface TypingEvent {
 }
 
 /* ── Phase 3: AI ────────────────────────────────────────────────────────
- * Mirrors chatbots-backend/src/common/constants/ai.ts
+ * Mirrors chatbots-backend/src/shared/constants/ai.ts
  */
 
 export enum AIResponseState {
@@ -292,7 +292,7 @@ export interface AiThinkingEvent {
 }
 
 /* ── Phase 4: Knowledge base / RAG ──────────────────────────────────────
- * Mirrors chatbots-backend/src/common/constants/knowledge.ts
+ * Mirrors chatbots-backend/src/shared/constants/knowledge.ts
  */
 
 export enum DocumentStatus {
@@ -350,7 +350,7 @@ export interface KnowledgeSearchResult {
 }
 
 /* ── Phase 5: Handoff & notifications ───────────────────────────────────
- * Mirrors chatbots-backend/src/common/constants/notification.ts
+ * Mirrors chatbots-backend/src/shared/constants/notification.ts
  */
 
 export enum NotificationType {
@@ -377,7 +377,7 @@ export interface NotificationsEnvelope {
 }
 
 /* ── Phase 6: AI tools ──────────────────────────────────────────────────
- * Mirrors chatbots-backend/src/common/constants/tools.ts
+ * Mirrors chatbots-backend/src/shared/constants/tools.ts
  */
 
 export enum ToolExecutionStatus {
@@ -412,7 +412,7 @@ export interface ToolExecution {
 }
 
 /* ── Phase 7: analytics ─────────────────────────────────────────────────
- * Mirrors chatbots-backend/src/analytics/analytics.service.ts
+ * Mirrors chatbots-backend/src/modules/analytics/analytics.service.ts
  *
  * Every rate and average is `number | null`, never optional: the backend
  * returns null when the denominator is empty, and the distinction between
@@ -502,7 +502,7 @@ export interface AiUsageReport {
 }
 
 /* ── Phase 8: external channels ─────────────────────────────────────────
- * Mirrors chatbots-backend/src/channels/channels-admin.service.ts
+ * Mirrors chatbots-backend/src/modules/channels/channels-admin.service.ts
  */
 
 export enum ChannelType {

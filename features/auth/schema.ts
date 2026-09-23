@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 /**
- * Mirrors LoginDto in chatbots-backend/src/auth/dto/login.dto.ts.
+ * Mirrors LoginDto in chatbots-backend/src/modules/auth/dto/login.dto.ts.
  * Client-side validation is UX only — the server validates independently.
  */
 export const loginSchema = z.object({

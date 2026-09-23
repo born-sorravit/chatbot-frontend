@@ -77,8 +77,10 @@ under its own group and never ship admin code in the same bundle.
 
 **No shared types package.** The two apps are separate deployables
 ([`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) TD-02). `types/api.ts` mirrors
-the backend contracts by hand and names the file each type mirrors. Extract a
-package when this stops being small.
+the backend contracts by hand and names the file each type mirrors — enums live
+in `chatbots-backend/src/shared/constants/`, DTOs and service shapes under
+`chatbots-backend/src/modules/<feature>/`. Extract a package when this stops
+being small.
 
 **Auth state lives in localStorage.** A page refresh must not log the admin out.
 This is a stated MVP tradeoff, not an oversight: anything stored there is readable
