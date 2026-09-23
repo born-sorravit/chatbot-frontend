@@ -1,0 +1,30 @@
+'use client';
+
+import { useState, type ReactNode } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ApiError } from './api-error';
+
+export function QueryProvider({ children }: { children: ReactNode }) {
+  // Created in state so each browser session gets one client, and so a
+  // server render never shares a cache between requests.
+  const [client] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 30_000,
+            retry: (failureCount, error) => {
+              // Auth and permission failures are not transient — retrying
+              // them just delays showing the user what happened.
+              if (error instanceof ApiError && error.status >= 400 && error.status < 500) {
+                return false;
+              }
+              return failureCount < 2;
+            },
+          },
+        },
+      }),
+  );
+
+  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
+}
